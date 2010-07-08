@@ -5,10 +5,10 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "vidibus-core_extensions"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
-    gem.email = "andre@webwarelab.com"
-    gem.homepage = "http://github.com/webwarelab/vidibus-core_extensions"
+    gem.summary = %Q{Extends the Ruby core}
+    gem.description = %Q{Extends the Ruby core}
+    gem.email = "andre@vidibus.com"
+    gem.homepage = "http://github.com/vidibus/vidibus-core_extensions"
     gem.authors = ["Andre Pankratz"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings

@@ -1,4 +1,4 @@
-require 'uri'
+require "uri"
 
 module Vidibus
   module CoreExtensions
@@ -33,10 +33,12 @@ module Vidibus
       #   hash = { :name => "rodrigo", :age => 21 }
       #   hash.only(:name)  # => { :name => "rodrigo" }
       #
-      # Thank you: http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
+      # Inspired by: http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
+      #              http://snippets.dzone.com/posts/show/302
       #
       def only(*keys)
-        self.class[*self.select { |k,v| keys.include?(k) }.flatten]
+        keys.flatten!
+        self.class[*self.select { |k,v| keys.include?(k) }.flatten_once]
       end
 
       # Returns a copy of self including all but the given keys.
@@ -44,12 +46,13 @@ module Vidibus
       # Usage:
       #
       #   hash = { :name => "rodrigo", :age = 21 }
-      #   hash.exclude(:name)  # => { :age => 21 }
+      #   hash.except(:name)  # => { :age => 21 }
       #
       # Thank you: http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
       #
       def except(*keys)
-        self.class[*self.select { |k,v| !keys.include?(k)}.flatten]
+        keys.flatten!
+        self.class[*self.select { |k,v| !keys.include?(k) }.flatten_once]
       end
     end
   end

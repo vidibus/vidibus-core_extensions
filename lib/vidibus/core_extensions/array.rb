@@ -13,6 +13,42 @@ module Vidibus
           end
         end
       end
+      
+      # Merges given array with current one.
+      #
+      # Will perform insertion of new items by three rules:
+      #   1. If the item's predecessor is present, insert item after it.
+      #   2. If the item's follower is present, isert item before it.
+      #   3. Insert item at end of list.
+      #
+      def merge(array)
+        for value in array
+          next if include?(value)
+          if found = merging_predecessor(value, array)
+            position = index(found) + 1
+          elsif found = merging_follower(value, array)
+            position = index(found)
+          end
+          insert(position || length, value)
+        end
+        self
+      end
+      
+      private
+      
+      # Returns predecessor of given needle from haystack.
+      # Helper method for #merge
+      def merging_predecessor(needle, haystack)
+        list = haystack[0..haystack.index(needle)].reverse
+        (list & self).first
+      end
+
+      # Returns follower of given needle from haystack.
+      # Helper method for #merge
+      def merging_follower(needle, haystack)
+        list = haystack[haystack.index(needle)+1..-1]
+        (list & self).first
+      end
     end
   end
 end

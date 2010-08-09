@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andre Pankratz"]
   s.date = %q{2010-08-09}
-  s.description = %q{Extends the Ruby core}
+  s.description = %q{Provides some extensions to the ruby core.}
   s.email = %q{andre@vidibus.com}
   s.extra_rdoc_files = [
     "LICENSE",
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
-  s.summary = %q{Extends the Ruby core}
+  s.summary = %q{Extends the ruby core.}
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/vidibus/core_extensions/array_spec.rb",

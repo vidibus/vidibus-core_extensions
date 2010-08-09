@@ -2,9 +2,14 @@ require "spec_helper"
 
 describe "Vidibus::CoreExtensions::Hash" do
   describe "#to_uri" do
+    it "should join params with '&'" do
+      hash = { :some => "value", :another => "thing" }
+      hash.to_uri.should eql("some=value&another=thing")
+    end
+    
     it "should return items as urlencoded string" do
-      hash = { :some => :value, :another => "speciál" }
-      hash.to_uri.should eql("some=value&another=speci%C3%A1l")
+      hash = { :another => "speciál" }
+      hash.to_uri.should eql("another=speci%C3%A1l")
     end
     
     it "should support multi-level hashes" do

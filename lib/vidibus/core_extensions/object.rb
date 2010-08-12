@@ -5,9 +5,9 @@ module Vidibus
       # Tries to use a method on object.
       # 
       # Example:
-      #   something.try(:else) # => nil
+      #   something.try!(:else) # => nil
       #
-      def try(method)
+      def try!(method)
         begin
           send(method)
         rescue

@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Vidibus::CoreExtensions::Object" do
   describe "#try!" do
     let(:dog) do
-      Struct.new("Dog", :out)
+      Struct.new("Dog", :out) unless defined?(Struct::Dog)
       Struct::Dog.new(true)
     end
     

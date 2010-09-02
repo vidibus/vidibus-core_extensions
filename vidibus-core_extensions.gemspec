@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vidibus-core_extensions}
-  s.version = "0.3.2"
+  s.version = "0.3.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andre Pankratz"]
-  s.date = %q{2010-08-12}
+  s.date = %q{2010-09-02}
   s.description = %q{Provides some extensions to the ruby core.}
   s.email = %q{andre@vidibus.com}
   s.extra_rdoc_files = [
@@ -17,8 +17,12 @@ Gem::Specification.new do |s|
      "README.rdoc"
   ]
   s.files = [
-    ".document",
+    ".bundle/config",
+     ".document",
      ".gitignore",
+     ".rspec",
+     "Gemfile",
+     "Gemfile.lock",
      "LICENSE",
      "README.rdoc",
      "Rakefile",
@@ -28,11 +32,12 @@ Gem::Specification.new do |s|
      "lib/vidibus/core_extensions/array.rb",
      "lib/vidibus/core_extensions/hash.rb",
      "lib/vidibus/core_extensions/object.rb",
-     "spec/spec.opts",
+     "lib/vidibus/core_extensions/string.rb",
      "spec/spec_helper.rb",
      "spec/vidibus/core_extensions/array_spec.rb",
      "spec/vidibus/core_extensions/hash_spec.rb",
      "spec/vidibus/core_extensions/object_spec.rb",
+     "spec/vidibus/core_extensions/string_spec.rb",
      "vidibus-core_extensions.gemspec"
   ]
   s.homepage = %q{http://github.com/vidibus/vidibus-core_extensions}
@@ -44,7 +49,8 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb",
      "spec/vidibus/core_extensions/array_spec.rb",
      "spec/vidibus/core_extensions/hash_spec.rb",
-     "spec/vidibus/core_extensions/object_spec.rb"
+     "spec/vidibus/core_extensions/object_spec.rb",
+     "spec/vidibus/core_extensions/string_spec.rb"
   ]
 
   if s.respond_to? :specification_version then
@@ -52,12 +58,9 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<rspec>, [">= 1.2.9"])
     else
-      s.add_dependency(%q<rspec>, [">= 1.2.9"])
     end
   else
-    s.add_dependency(%q<rspec>, [">= 1.2.9"])
   end
 end
 

@@ -53,6 +53,14 @@ module Vidibus
         c.gsub(/[^a-z0-9\.\,\|\?\!\:;"'=\+\-_]+/i, " ").
           gsub(/ {2,}/, " ")
       end
+      
+      # Returns a string that may be used as permalink
+      def permalink
+        latinize.
+          downcase.
+          gsub(/[^a-z0-9]+/, "-").
+          gsub(/^-/, "").gsub(/-$/, "")
+      end
     end
   end
 end

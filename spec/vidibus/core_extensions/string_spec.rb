@@ -30,4 +30,36 @@ describe "Vidibus::CoreExtensions::String" do
       "Hola señor, ¿cómo está?".latinize.should eql("Hola senor, como esta?")
     end
   end
+  
+  describe "#permalink" do
+    it "should call #latinize" do
+      string = "hey"
+      mock(string).latinize { string }
+      string.permalink.should eql(string)
+    end
+    
+    it "should return lower chars only" do
+      "HeLlo".permalink.should eql("hello")
+    end
+    
+    it "should turn whitespace into dashes" do
+      "hey joe".permalink.should eql("hey-joe")
+    end
+    
+    it "should turn special chars into dashes" do
+      "hi~there".permalink.should eql("hi-there")
+    end
+    
+    it "should not begin with dashes" do
+      ">duh".permalink.should eql("duh")
+    end
+    
+    it "should not end with dashes" do
+      "hi!".permalink.should eql("hi")
+    end
+    
+    it "should convert multiple adjacent special chars into a single dash" do
+      "Hola señor, ¿cómo está?".permalink.should eql("hola-senor-como-esta")
+    end
+  end
 end

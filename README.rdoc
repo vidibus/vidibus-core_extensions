@@ -77,6 +77,13 @@ Returns a string without exotic chars. Examples:
   "Ähre, wem Ähre gebührt.".latinize # => "AEhre, wem AEhre gebuehrt."
 
 
+=== String#permalink
+
+Returns a string that may be used as permalink. Example:
+  
+  "Hola señor, ¿cómo está?".permalink # => "hola-senor-como-esta"
+  
+
 == Copyright
 
 Copyright (c) 2010 Andre Pankratz. See LICENSE for details.

@@ -82,7 +82,7 @@ Returns a string without exotic chars. Examples:
 Returns a string that may be used as permalink. Example:
   
   "Hola señor, ¿cómo está?".permalink # => "hola-senor-como-esta"
-  
+
 
 == Copyright
 

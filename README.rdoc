@@ -67,6 +67,16 @@ Returns a copy of self including all but the given keys. Example:
   { :name => "Rodrigo", :age = 21 }.except(:name)  # => { :age => 21 }
 
 
+== String
+
+=== String#latinize
+
+Returns a string without exotic chars. Examples:
+  
+  "Hola señor, ¿cómo está?".latinize # => "Hola senor, como esta?"
+  "Ähre, wem Ähre gebührt.".latinize # => "AEhre, wem AEhre gebuehrt."
+
+
 == Copyright
 
 Copyright (c) 2010 Andre Pankratz. See LICENSE for details.

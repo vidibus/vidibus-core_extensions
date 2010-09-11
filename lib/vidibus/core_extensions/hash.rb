@@ -75,6 +75,17 @@ module Vidibus
           args = self.select { |k,v| !keys.include?(k) }
           ::Hash.build(args)
         end
+        
+        # Returns a nested array. Just like #to_a, but nested.
+        #
+        def to_a_rec
+          array = []
+          for key, value in self
+            value = value.to_a_rec.first if value.is_a?(::Hash)
+            array << [key, value]
+          end
+          array
+        end
       end
     end
   end

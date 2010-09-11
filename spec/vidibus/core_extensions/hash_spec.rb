@@ -53,6 +53,18 @@ describe "Vidibus::CoreExtensions::Hash" do
     end
   end
   
+  describe "#to_a_rec" do
+    it "should return an array" do
+      hash = {:some => "thing"}
+      hash.to_a_rec.should eql([[:some, "thing"]])
+    end
+    
+    it "should return an array of from nested attributes" do
+      hash = {:some => {:nested => {:complicated => "thing"}}, :with => "style"}
+      hash.to_a_rec.should eql([[:with, "style"], [:some, [:nested, [:complicated, "thing"]]]])
+    end
+  end
+  
   describe ".build" do
     it "should return a hash" do
       Hash.build.should eql(Hash.new)

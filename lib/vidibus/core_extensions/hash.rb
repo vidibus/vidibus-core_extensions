@@ -81,7 +81,7 @@ module Vidibus
         def to_a_rec
           array = []
           for key, value in self
-            value = value.to_a_rec.first if value.is_a?(::Hash)
+            value = value.to_a_rec if value.is_a?(::Hash)
             array << [key, value]
           end
           array

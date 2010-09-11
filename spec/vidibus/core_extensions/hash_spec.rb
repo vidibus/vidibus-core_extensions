@@ -60,8 +60,8 @@ describe "Vidibus::CoreExtensions::Hash" do
     end
     
     it "should return an array of from nested attributes" do
-      hash = {:some => {:nested => {:complicated => "thing"}}, :with => "style"}
-      hash.to_a_rec.should eql([[:with, "style"], [:some, [:nested, [:complicated, "thing"]]]])
+      hash = {:some => {:nested => {:complicated => "thing", :is => ["really", "groovy"]}}, :with => "style"}
+      hash.to_a_rec.should eql([[:with, "style"], [:some, [[:nested, [[:complicated, "thing"], [:is, ["really", "groovy"]]]]]]])
     end
   end
   

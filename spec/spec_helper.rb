@@ -6,6 +6,6 @@ require "rspec"
 require "rr"
 require "vidibus-core_extensions"
 
-RSpec.configure do |config|  
+RSpec.configure do |config|
   config.mock_with :rr
 end

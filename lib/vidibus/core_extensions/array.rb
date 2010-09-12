@@ -1,11 +1,11 @@
 module Vidibus
   module CoreExtensions
     module Array
-      
+
       # Flattens first level.
       #
       # Example:
-      #  
+      #
       #   [1, [2, [3]]].flatten_once  # => [1, 2, [3]]
       #
       # Inspired by: http://snippets.dzone.com/posts/show/302#comment-1417
@@ -19,7 +19,7 @@ module Vidibus
           end
         end
       end
-      
+
       # Merges given array with current one.
       #
       # Will perform insertion of new items by three rules:
@@ -33,7 +33,7 @@ module Vidibus
       #   ['a'].merge([1, 2])         # => ['a', 1, 2]
       #   [1, 'a'].merge([1, 2])      # => [1, 2, 'a']
       #   [1, 'a'].merge([3, 1, 2])   # => [3, 1, 2, 'a']
-      # 
+      #
       def merge(array)
         for value in array
           next if include?(value)
@@ -46,9 +46,9 @@ module Vidibus
         end
         self
       end
-      
+
       private
-      
+
       # Returns predecessor of given needle from haystack.
       # Helper method for #merge
       def merging_predecessor(needle, haystack)

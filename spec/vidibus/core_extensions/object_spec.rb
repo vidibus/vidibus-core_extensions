@@ -6,7 +6,7 @@ describe "Vidibus::CoreExtensions::Object" do
       Struct.new("Dog", :out) unless defined?(Struct::Dog)
       Struct::Dog.new(true)
     end
-    
+
     it "should return defined method" do
       dog.try!(:out).should be_true
     end

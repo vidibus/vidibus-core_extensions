@@ -4,12 +4,12 @@ module Vidibus
   module CoreExtensions
     module Hash
       module ClassMethods
-        
+
         # Returns new hash with given arguments.
         # If an array is provided, it will be flattened once. Multi-level arrays are not supported.
         # This method is basically a helper to support different return values of Hash#select:
         # Ruby 1.8.7 returns an array, Ruby 1.9.2 returns a hash.
-        # 
+        #
         def build(args = nil)
           if args.is_a?(::Array)
             args = args.flatten_once
@@ -21,13 +21,13 @@ module Vidibus
           end
         end
       end
-      
+
       module InstanceMethods
 
         # Returns URL-encoded string of uri params.
-        # 
+        #
         # Examples:
-        #  
+        #
         #  { :some => :value, :another => "speciál" }.to_uri  # => "some=value&another=speci%C3%A1l"
         #  { :some => { :nested => :thing } }.to_uri          # => "some=[nested=thing]"
         #
@@ -43,14 +43,14 @@ module Vidibus
           end
           list.join("&")
         end
-      
+
         # Returns a copy of self including only the given keys.
         #
         # Example:
         #
         #   { :name => "Rodrigo", :age => 21 }.only(:name)  # => { :name => "Rodrigo" }
         #
-        # Inspired by: 
+        # Inspired by:
         # http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
         # and
         # http://snippets.dzone.com/posts/show/302
@@ -67,7 +67,7 @@ module Vidibus
         #
         #   { :name => "Rodrigo", :age = 21 }.except(:name)  # => { :age => 21 }
         #
-        # Inspired by: 
+        # Inspired by:
         # http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
         #
         def except(*keys)
@@ -75,7 +75,7 @@ module Vidibus
           args = self.select { |k,v| !keys.include?(k) }
           ::Hash.build(args)
         end
-        
+
         # Returns a nested array. Just like #to_a, but nested.
         #
         def to_a_rec

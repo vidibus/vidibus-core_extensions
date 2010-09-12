@@ -19,9 +19,9 @@ Then call bundle install on your console.
 == Array
 
 === Array#flatten_once
-  
+
 Flattens first level of an array. Example:
-  
+
   [1, [2, [3]]].flatten_once  # => [1, 2, [3]]
 
 
@@ -72,7 +72,7 @@ Returns a copy of self including all but the given keys. Example:
 === String#latinize
 
 Returns a string without exotic chars. Examples:
-  
+
   "Hola señor, ¿cómo está?".latinize # => "Hola senor, como esta?"
   "Ähre, wem Ähre gebührt.".latinize # => "AEhre, wem AEhre gebuehrt."
 
@@ -80,7 +80,7 @@ Returns a string without exotic chars. Examples:
 === String#permalink
 
 Returns a string that may be used as permalink. Example:
-  
+
   "Hola señor, ¿cómo está?".permalink # => "hola-senor-como-esta"
 
 

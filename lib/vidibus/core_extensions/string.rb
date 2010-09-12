@@ -2,7 +2,7 @@
 module Vidibus
   module CoreExtensions
     module String
-      
+
       # Map of latin chars and their representations as unicode chars.
       LATIN_MAP = {
         "A"  => %w[À Á Â Ã Å Ą Ā],
@@ -54,7 +54,7 @@ module Vidibus
         c.gsub(/[^a-z0-9\.\,\|\?\!\:;"'=\+\-_]+/i, " ").
           gsub(/ {2,}/, " ")
       end
-      
+
       # Returns a string that may be used as permalink
       def permalink
         latinize.

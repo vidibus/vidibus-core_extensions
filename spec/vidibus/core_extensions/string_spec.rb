@@ -63,4 +63,16 @@ describe "Vidibus::CoreExtensions::String" do
       "Hola señor, ¿cómo está?".permalink.should eql("hola-senor-como-esta")
     end
   end
+
+  describe "#%" do
+    it "should allow reqular printf behaviour" do
+      string = "%s, %s" % ["Masao", "Mutoh"]
+      string.should eql("Masao, Mutoh")
+    end
+
+    it "should accept named arguments" do
+      string = "%{firstname}, %{familyname}" % {:firstname => "Masao", :familyname => "Mutoh"}
+      string.should eql("Masao, Mutoh")
+    end
+  end
 end

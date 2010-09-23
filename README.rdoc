@@ -49,22 +49,22 @@ Examples:
 
 Returns URL-encoded string of uri params. Examples:
 
-  { :some => :value, :another => "speciál" }.to_uri  # => "some=value&another=speci%C3%A1l"
-  { :some => { :nested => :thing } }.to_uri          # => "some=[nested=thing]"
+  {:some => :value, :another => "speciál"}.to_uri  # => "some=value&another=speci%C3%A1l"
+  {:some => {:nested => :thing}}.to_uri            # => "some=[nested=thing]"
 
 
 === Hash#only
 
 Returns a copy of self including only the given keys. Example:
 
-  { :name => "Rodrigo", :age => 21 }.only(:name)  # => { :name => "Rodrigo" }
+  {:name => "Rodrigo", :age => 21}.only(:name)  # => {:name => "Rodrigo"}
 
 
 === Hash#except
 
 Returns a copy of self including all but the given keys. Example:
 
-  { :name => "Rodrigo", :age = 21 }.except(:name)  # => { :age => 21 }
+  {:name => "Rodrigo", :age = 21}.except(:name)  # => {:age => 21}
 
 
 == String

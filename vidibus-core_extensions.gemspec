@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vidibus-core_extensions}
-  s.version = "0.3.5"
+  s.version = "0.3.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andre Pankratz"]
-  s.date = %q{2010-09-12}
+  s.date = %q{2010-09-23}
   s.description = %q{Provides some extensions to the ruby core.}
   s.email = %q{andre@vidibus.com}
   s.extra_rdoc_files = [
@@ -30,11 +30,13 @@ Gem::Specification.new do |s|
      "lib/vidibus-core_extensions.rb",
      "lib/vidibus/core_extensions.rb",
      "lib/vidibus/core_extensions/array.rb",
+     "lib/vidibus/core_extensions/file_utils.rb",
      "lib/vidibus/core_extensions/hash.rb",
      "lib/vidibus/core_extensions/object.rb",
      "lib/vidibus/core_extensions/string.rb",
      "spec/spec_helper.rb",
      "spec/vidibus/core_extensions/array_spec.rb",
+     "spec/vidibus/core_extensions/file_utils_spec.rb",
      "spec/vidibus/core_extensions/hash_spec.rb",
      "spec/vidibus/core_extensions/object_spec.rb",
      "spec/vidibus/core_extensions/string_spec.rb",
@@ -48,6 +50,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/vidibus/core_extensions/array_spec.rb",
+     "spec/vidibus/core_extensions/file_utils_spec.rb",
      "spec/vidibus/core_extensions/hash_spec.rb",
      "spec/vidibus/core_extensions/object_spec.rb",
      "spec/vidibus/core_extensions/string_spec.rb"

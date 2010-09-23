@@ -81,4 +81,18 @@ class Hash
     end
     array
   end
+  
+  # Returns true if hash has all of given keys.
+  # It's like Hash#key?, but it accepts several keys.
+  #
+  # Example:
+  #  
+  #  {:some => "say", :any => "thing"}.keys?(:some, :any) # => true
+  #
+  def keys?(*args)
+    for arg in args
+      return false unless self[arg]
+    end
+    return true
+  end
 end

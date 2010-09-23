@@ -64,7 +64,23 @@ describe "Vidibus::CoreExtensions::Hash" do
       hash.to_a_rec.should eql([[:some, [[:nested, [[:is, ["really", "groovy"]]]]]]])
     end
   end
-
+  
+  describe "#keys?" do
+    let(:hash) { {:some => "say", :any => "thing"} }
+    
+    it "should return true if all keys are given in hash" do
+      hash.keys?(:some, :any).should be_true
+    end
+    
+    it "should return true if all keys are given in larger hash" do
+      hash.keys?(:any).should be_true
+    end
+    
+    it "should return false if any of the given key misses in hash" do
+      hash.keys?(:any, :thing).should be_false
+    end
+  end
+  
   describe ".build" do
     it "should return a hash" do
       Hash.build.should eql(Hash.new)

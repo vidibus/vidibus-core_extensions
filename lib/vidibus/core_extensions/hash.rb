@@ -22,8 +22,8 @@ class Hash
   #
   # Examples:
   #
-  #  { :some => :value, :another => "speciál" }.to_uri  # => "some=value&another=speci%C3%A1l"
-  #  { :some => { :nested => :thing } }.to_uri          # => "some=[nested=thing]"
+  #  {:some => :value, :another => "speciál"}.to_uri  # => "some=value&another=speci%C3%A1l"
+  #  {:some => {:nested => :thing}}.to_uri            # => "some=[nested=thing]"
   #
   def to_uri
     hash = dup
@@ -43,7 +43,7 @@ class Hash
   #
   # Example:
   #
-  #   { :name => "Rodrigo", :age => 21 }.only(:name)  # => { :name => "Rodrigo" }
+  #   {:name => "Rodrigo", :age => 21}.only(:name)  # => {:name => "Rodrigo"}
   #
   # Inspired by:
   # http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
@@ -60,7 +60,7 @@ class Hash
   #
   # Example:
   #
-  #   { :name => "Rodrigo", :age = 21 }.except(:name)  # => { :age => 21 }
+  #   {:name => "Rodrigo", :age = 21}.except(:name)  # => {:age => 21}
   #
   # Inspired by:
   # http://www.koders.com/ruby/fid80243BF76758F830B298E0E681B082B3408AB185.aspx?s=%22Rodrigo+Kochenburger%22#L9
@@ -81,12 +81,12 @@ class Hash
     end
     array
   end
-  
+
   # Returns true if hash has all of given keys.
   # It's like Hash#key?, but it accepts several keys.
   #
   # Example:
-  #  
+  #
   #  {:some => "say", :any => "thing"}.keys?(:some, :any) # => true
   #
   def keys?(*args)

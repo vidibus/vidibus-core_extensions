@@ -90,4 +90,24 @@ class String
       end
     end
   end
+  
+  # Truncates string to given length while preserves whole words.
+  # If string exceeds given length, an ellipsis will be appended.
+  #
+  # Example:
+  # 
+  # "O Brother, Where Art Thou?".snip(13)  # => "O Brother, Where…"  
+  #
+  def snip(length, ellipsis = "…")
+    return self if self.empty?
+    self.gsub(/^(.{#{length.to_i-1}})(.)([\w]*)(.*)/m) do
+      if $2 == " "
+        "#{$1}#{ellipsis}"
+      elsif $3.empty?
+        self
+      else
+        "#{$1}#{$2}#{$3}#{ellipsis}"
+      end
+    end
+  end
 end

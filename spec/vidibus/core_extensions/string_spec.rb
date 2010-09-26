@@ -75,4 +75,26 @@ describe "Vidibus::CoreExtensions::String" do
       string.should eql("Masao, Mutoh")
     end
   end
+  
+  describe "snip" do
+    it "should truncate string to given length while preserving words" do
+      "O Brother, Where Art Thou?".snip(13).should eql("O Brother, Where…")
+    end
+    
+    it "should return whole string if it fits in given length" do
+      "O Brother, Where Art Thou?".snip(100).should eql("O Brother, Where Art Thou?")
+    end
+    
+    it "should return whole string if it equals length" do
+      "O Brother, Where Art Thou?".snip(26).should eql("O Brother, Where Art Thou?")
+    end
+    
+    it "should return whole string if it equals length" do
+      "O Brother, Where Art Thou?".snip(11).should eql("O Brother,…")
+    end
+    
+    it "should trim white space" do
+      "O Brother,       Where Art Thou?".snip(11).should eql("O Brother,…")
+    end
+  end
 end

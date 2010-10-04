@@ -72,15 +72,25 @@ class Hash
   end
 
   # Returns a nested array. Just like #to_a, but nested.
+  # Also converts hashes within arrays.
   #
   def to_a_rec
     array = []
     for key, value in self
-      value = value.to_a_rec if value.is_a?(Hash)
+      if value.is_a?(Hash)
+        value = value.to_a_rec
+      elsif value.is_a?(Array)
+        a = value.flatten
+        value = []
+        for v in a
+          value << (v.is_a?(Hash) ? v.to_a_rec : v)
+        end
+      end
       array << [key, value]
     end
     array
   end
+
 
   # Returns true if hash has all of given keys.
   # It's like Hash#key?, but it accepts several keys.

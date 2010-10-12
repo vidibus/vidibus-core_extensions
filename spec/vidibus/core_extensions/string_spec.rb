@@ -75,26 +75,44 @@ describe "Vidibus::CoreExtensions::String" do
       string.should eql("Masao, Mutoh")
     end
   end
-  
+
   describe "snip" do
     it "should truncate string to given length while preserving words" do
       "O Brother, Where Art Thou?".snip(13).should eql("O Brother, Where…")
     end
-    
+
     it "should return whole string if it fits in given length" do
       "O Brother, Where Art Thou?".snip(100).should eql("O Brother, Where Art Thou?")
     end
-    
+
     it "should return whole string if it equals length" do
       "O Brother, Where Art Thou?".snip(26).should eql("O Brother, Where Art Thou?")
     end
-    
+
     it "should return whole string if it equals length" do
       "O Brother, Where Art Thou?".snip(11).should eql("O Brother,…")
     end
-    
+
     it "should trim white space" do
       "O Brother,       Where Art Thou?".snip(11).should eql("O Brother,…")
+    end
+  end
+
+  describe "strip_tags" do
+    it "should remove all tags from string" do
+      "<p>Think<br />different</p>".strip_tags.should eql("Thinkdifferent")
+    end
+
+    it "should even remove chars that aren't tags but look like ones" do
+      "small < large > small".strip_tags.should eql("small  small")
+    end
+  end
+
+  describe "strip_tags!" do
+    it "should strip tags on self" do
+      string = "<p>Think<br />different</p>"
+      string.strip_tags!
+      string.should eql("Thinkdifferent")
     end
   end
 end

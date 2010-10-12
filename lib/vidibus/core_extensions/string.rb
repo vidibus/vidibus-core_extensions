@@ -90,13 +90,13 @@ class String
       end
     end
   end
-  
+
   # Truncates string to given length while preserves whole words.
   # If string exceeds given length, an ellipsis will be appended.
   #
   # Example:
-  # 
-  # "O Brother, Where Art Thou?".snip(13)  # => "O Brother, Where…"  
+  #
+  # "O Brother, Where Art Thou?".snip(13)  # => "O Brother, Where…"
   #
   def snip(length, ellipsis = "…")
     return self if self.empty?
@@ -109,5 +109,15 @@ class String
         "#{$1}#{$2}#{$3}#{ellipsis}"
       end
     end
+  end
+
+  # Removes all html tags from given string.
+  def strip_tags
+    self.gsub(/<+\/?[^>]*>+/, '')
+  end
+
+  # Removes all html tags on self.
+  def strip_tags!
+    self.replace strip_tags
   end
 end

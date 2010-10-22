@@ -14,5 +14,10 @@ describe "Vidibus::CoreExtensions::Object" do
     it "should return nil when calling undefined method" do
       dog.try!(:food).should be_nil
     end
+
+    it "should re-raise exceptions" do
+      stub(dog).bark { raise("wuff") }
+      expect {dog.try!(:bark)}.to raise_exception("wuff")
+    end
   end
 end

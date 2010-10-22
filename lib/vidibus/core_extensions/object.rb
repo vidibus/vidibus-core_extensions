@@ -8,7 +8,9 @@ class Object
   def try!(method)
     begin
       send(method)
-    rescue
+    rescue NoMethodError
+    rescue => e
+      raise e
     end
   end
 end

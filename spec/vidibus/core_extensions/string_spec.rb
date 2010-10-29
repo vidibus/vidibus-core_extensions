@@ -96,6 +96,10 @@ describe "Vidibus::CoreExtensions::String" do
     it "should trim white space" do
       "O Brother,       Where Art Thou?".snip(11).should eql("O Brother,…")
     end
+    
+    it "should handle content with backets" do
+      "O Brother (Or Sister), Where Art Thou?".snip(20).should eql("O Brother (Or Sister…")
+    end
   end
 
   describe "strip_tags" do

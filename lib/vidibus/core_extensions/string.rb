@@ -103,7 +103,7 @@ class String
     self.gsub(/^(.{#{length.to_i-1}})(.)([\w]*)(.*)/m) do
       if $2 == " "
         "#{$1}#{ellipsis}"
-      elsif $3.empty?
+      elsif $3.empty? and $4.empty?
         self
       else
         "#{$1}#{$2}#{$3}#{ellipsis}"

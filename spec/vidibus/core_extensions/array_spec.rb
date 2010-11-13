@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Vidibus::CoreExtensions::Array" do
+describe "Array" do
   describe "#flatten_once" do
     it "should return array" do
       array = ['go', 'for', 'it']

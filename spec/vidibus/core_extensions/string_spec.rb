@@ -1,7 +1,7 @@
 # encoding: utf-8
 require "spec_helper"
 
-describe "Vidibus::CoreExtensions::String" do
+describe "String" do
   describe "::LATIN_MAP" do
     it "should contain a Hash map" do
       String::LATIN_MAP.should be_a(Hash)

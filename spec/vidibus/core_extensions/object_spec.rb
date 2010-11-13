@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Vidibus::CoreExtensions::Object" do
+describe "Object" do
   describe "#try!" do
     let(:dog) do
       Struct.new("Dog", :out) unless defined?(Struct::Dog)

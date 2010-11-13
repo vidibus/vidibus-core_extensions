@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Vidibus::CoreExtensions::FileUtils" do
+describe "FileUtils" do
   describe ".remove_dir_r" do
     let(:tmpdir) { File.join(File.dirname(__FILE__), "..", "..", "tmp") }
     before { FileUtils.mkdir_p("#{tmpdir}/some/test/dir")}

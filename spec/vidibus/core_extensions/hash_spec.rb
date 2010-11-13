@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Vidibus::CoreExtensions::Hash" do
+describe "Hash" do
   describe "#to_uri" do
     it "should join params with '&'" do
       hash = {:some => "value", :another => "thing"}

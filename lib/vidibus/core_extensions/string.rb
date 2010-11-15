@@ -45,12 +45,13 @@ class String
 
   # Replaces non-latin chars, leaves some special ones.
   def latinize
-    c = clone
+    c = dup
     for char, map in LATIN_MAP
-      c.gsub!(/(#{map.join('|')})/, char)
+      c.gsub!(/[#{map.join}]/mu, char)
     end
-    c.gsub(/[^a-z0-9\.\,\|\?\!\:;"'=\+\-_]+/i, " ").
-      gsub(/ {2,}/, " ")
+    c.gsub!(/[^a-zA-Z0-9\.\,\|\?\!\:;"'=\+\-_]+/mu, " ")
+    c.gsub!(/\s+/, " ")
+    c
   end
 
   # Returns a string that may be used as permalink

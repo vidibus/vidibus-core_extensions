@@ -4,7 +4,7 @@ class String
   # Map of latin chars and their representations as unicode chars.
   LATIN_MAP = {
     "A"  => %w[À Á Â Ã Å Ą Ā],
-    "a"  => %w["à á â ã å ą ả ã ạ ă ắ ằ ẳ ẵ ặ â ấ ầ ẩ ẫ ậ ā],
+    "a"  => %w[à á â ã å ą ả ã ạ ă ắ ằ ẳ ẵ ặ â ấ ầ ẩ ẫ ậ ā],
     "AE" => %w[Ä Æ Ǽ],
     "ae" => %w[ä æ ǽ],
     "C"  => %w[Ç Č Ć Ĉ],

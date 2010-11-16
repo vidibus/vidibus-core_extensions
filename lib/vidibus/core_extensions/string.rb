@@ -101,11 +101,13 @@ class String
   #
   def snip(length, ellipsis = "…")
     return self if self.empty?
-    self.gsub(/^(.{#{length.to_i-1}})(.)([\w]*)(.*)/m) do
+    str = dup
+    str.strip!
+    str.gsub(/^(.{#{length.to_i-1}})(.)([\w]*)(.*)/m) do
       if $2 == " "
         "#{$1}#{ellipsis}"
       elsif $3.empty? and $4.empty?
-        self
+        str
       else
         "#{$1}#{$2}#{$3}#{ellipsis}"
       end

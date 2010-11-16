@@ -89,14 +89,18 @@ describe "String" do
       "O Brother, Where Art Thou?".snip(26).should eql("O Brother, Where Art Thou?")
     end
 
-    it "should return whole string if it equals length" do
-      "O Brother, Where Art Thou?".snip(11).should eql("O Brother,…")
-    end
-
-    it "should trim white space" do
+    it "should strip white space between words" do
       "O Brother,       Where Art Thou?".snip(11).should eql("O Brother,…")
     end
+
+    it "should strip trailing white space" do
+      "O Brother, Where Art Thou? ".snip(26).should eql("O Brother, Where Art Thou?")
+    end
     
+    it "should strip leading white space" do
+      " O Brother, Where Art Thou?".snip(26).should eql("O Brother, Where Art Thou?")
+    end
+
     it "should handle content with backets" do
       "O Brother (Or Sister), Where Art Thou?".snip(20).should eql("O Brother (Or Sister…")
     end

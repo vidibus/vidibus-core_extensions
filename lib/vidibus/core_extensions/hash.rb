@@ -23,21 +23,16 @@ class Hash
   # Examples:
   #
   #  {:some => :value, :another => "speciál"}.to_uri  # => "some=value&another=speci%C3%A1l"
-  #  {:some => {:nested => :thing}}.to_uri            # => "some=[nested=thing]"
+  #  {:some => {:nested => :thing}}.to_uri            # => "some[nested]=thing"
   #
-  def to_uri
-    hash = dup
-    list = hash.to_a.map do |arg|
-      value = arg[1]
-      if value.is_a?(Hash)
-        value = "[#{value.to_uri}]"
-      else
-        value = URI.escape(value.to_s)
-      end
-      "#{URI.escape(arg[0].to_s)}=#{value}"
-    end
-    list.join("&")
+  # Stolen from active_record/core_ext. Thanks
+  #
+  def to_query(namespace = nil)
+    out = collect do |key, value|
+      value.to_query(namespace ? "#{namespace}[#{key}]" : key)
+    end.sort * "&"
   end
+  alias_method :to_uri, :to_query
 
   # Returns a copy of self including only the given keys.
   #

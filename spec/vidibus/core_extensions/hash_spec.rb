@@ -1,21 +1,26 @@
 require "spec_helper"
 
 describe "Hash" do
-  describe "#to_uri" do
+  describe "#to_query" do
     it "should join params with '&'" do
       hash = {:some => "value", :another => "thing"}
-      parts = hash.to_uri.split("&")
+      parts = hash.to_query.split("&")
       parts.sort.should eql(['another=thing', 'some=value'])
     end
 
     it "should return items as urlencoded string" do
       hash = {:another => "speciál"}
-      hash.to_uri.should eql("another=speci%C3%A1l")
+      hash.to_query.should eql("another=speci%C3%A1l")
     end
 
     it "should support multi-level hashes" do
       hash = {:some => {:nested => :thing}}
-      hash.to_uri.should eql("some=[nested=thing]")
+      hash.to_query.should eql("some%5Bnested%5D=thing")
+    end
+
+    it "should support a namespace" do
+      hash = {:nested => :thing}
+      hash.to_query(:some).should eql("some%5Bnested%5D=thing")
     end
   end
 
@@ -63,7 +68,7 @@ describe "Hash" do
       hash = {:some => {:nested => {:is => ["really", "groovy"]}}}
       hash.to_a_rec.should eql([[:some, [[:nested, [[:is, ["really", "groovy"]]]]]]])
     end
-    
+
     it "should return an array from hashes within arrays" do
       hash = {:some => [:nested, {:is => ["really", "groovy"]}]}
       hash.to_a_rec.should eql([[:some, [:nested, [[:is, ["really", "groovy"]]]]]])

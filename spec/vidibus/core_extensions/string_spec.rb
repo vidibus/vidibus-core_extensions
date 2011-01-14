@@ -76,7 +76,7 @@ describe "String" do
     end
   end
 
-  describe "snip" do
+  describe "#snip" do
     it "should truncate string to given length while preserving words" do
       "O Brother, Where Art Thou?".snip(13).should eql("O Brother, Where…")
     end
@@ -96,7 +96,7 @@ describe "String" do
     it "should strip trailing white space" do
       "O Brother, Where Art Thou? ".snip(26).should eql("O Brother, Where Art Thou?")
     end
-    
+
     it "should strip leading white space" do
       " O Brother, Where Art Thou?".snip(26).should eql("O Brother, Where Art Thou?")
     end
@@ -106,7 +106,7 @@ describe "String" do
     end
   end
 
-  describe "strip_tags" do
+  describe "#strip_tags" do
     it "should remove all tags from string" do
       "<p>Think<br />different</p>".strip_tags.should eql("Thinkdifferent")
     end
@@ -116,7 +116,7 @@ describe "String" do
     end
   end
 
-  describe "strip_tags!" do
+  describe "#strip_tags!" do
     it "should strip tags on self" do
       string = "<p>Think<br />different</p>"
       string.strip_tags!

@@ -50,7 +50,7 @@ Examples:
 Returns URL-encoded string of uri params. Examples:
 
   {:some => :value, :another => "speciál"}.to_uri  # => "some=value&another=speci%C3%A1l"
-  {:some => {:nested => :thing}}.to_uri            # => "some=[nested=thing]"
+  {:some => {:nested => :thing}}.to_uri            # => "some[nested]=thing"
 
 
 === Hash#only

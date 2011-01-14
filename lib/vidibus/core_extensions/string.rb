@@ -123,4 +123,16 @@ class String
   def strip_tags!
     self.replace strip_tags
   end
+
+  # Appends hash of query params to current string.
+  #
+  # Example:
+  #
+  # "http://vidibus.org".with_params(:awesome => "yes")
+  # # => "http://vidibus.org?awesome=yes"
+  #
+  def with_params(params = {})
+    return self unless params and params.any?
+    self + (self.match(/\?/) ? "&" : "?") + params.to_query
+  end
 end

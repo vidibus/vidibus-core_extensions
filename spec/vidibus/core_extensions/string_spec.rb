@@ -123,4 +123,22 @@ describe "String" do
       string.should eql("Thinkdifferent")
     end
   end
+
+  describe "#with_params" do
+    it "should return the current string unless params are given" do
+      "http://vidibus.org".with_params.should eql("http://vidibus.org")
+    end
+
+    it "should return the current string if an empty hash is given" do
+      "http://vidibus.org".with_params({}).should eql("http://vidibus.org")
+    end
+
+    it "should return the current string with params as query" do
+      "http://vidibus.org".with_params(:awesome => "yes").should eql("http://vidibus.org?awesome=yes")
+    end
+
+    it "should append params to existing query" do
+      "http://vidibus.org?opensource=true".with_params(:awesome => "yes").should eql("http://vidibus.org?opensource=true&awesome=yes")
+    end
+  end
 end

@@ -103,15 +103,15 @@ describe "Array" do
     it "should merge [[2],[]] with [[1],[2]]" do
       [[2],[]].merge_nested([[1],[2]]).should eql([[2,1],[]])
     end
-    
+
     it "should merge [[1,2,3]] with [[1,2],[3]]" do
       [[1,2,3]].merge_nested([[1,2],[3]]).should eql([[1,2,3]])
     end
-    
+
     it "should merge [[1,2],[3]] with [[1],[2,3]]" do
       [[1,2],[3]].merge_nested([[1],[2,3]]).should eql([[1,2],[3]])
     end
-    
+
     it "should keep source intact" do
       source = [[1,2]]
       [[1,2]].merge_nested(source)

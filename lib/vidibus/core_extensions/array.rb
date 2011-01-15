@@ -101,6 +101,36 @@ class Array
     converted.concat(array)
   end
 
+  # Sorts array of values, hashes or objects by given order.
+  # In order to sort hashes or objects, an attribute is required.
+  #
+  # Examples:
+  #
+  #   list = ["two", "one", "three"]
+  #   map = ["one", "two", "three"]
+  #   list.sort_by_map(map)
+  #   # => ["one", "two", "three"]
+  #
+  #   list = [{:n => "two"}, {:n => "one"}, {:n => "three"}]
+  #   map = ["one", "two", "three"]
+  #   list.sort_by_map(map, :n)
+  #   # => [{:n => "one"}, {:n => "two"}, {:n => "three"}]
+  #
+  def sort_by_map(map, attribute = nil)
+    ordered = []
+    for a in map
+      ordered << self.detect do |m|
+        if attribute
+          n = m.is_a?(Hash) ? m[attribute] : m.send(attribute)
+          a == n
+        else
+          a == m
+        end
+      end
+    end
+    ordered.compact
+  end
+
   private
 
   # Returns predecessor of given needle from haystack.

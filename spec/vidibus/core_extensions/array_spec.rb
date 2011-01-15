@@ -162,4 +162,30 @@ describe "Array" do
       [1,2].convert_boundaries.should eql([1,2])
     end
   end
+
+  describe "#sort_by_map" do
+    it "should sort the list of hashes by given order of attribute values" do
+      list = [{:n => "two"}, {:n => "one"}, {:n => "three"}]
+      map = ["one", "two", "three"]
+      list.sort_by_map(map, :n).should eql([{:n => "one"}, {:n => "two"}, {:n => "three"}])
+    end
+
+    it "should sort the list of objects by given order of attribute values" do
+      list = []
+      list << OpenStruct.new(:n => "two")
+      list << OpenStruct.new(:n => "one")
+      list << OpenStruct.new(:n => "three")
+      map = ["one", "two", "three"]
+      ordered = list.sort_by_map(map, :n)
+      ordered[0].n.should eql("one")
+      ordered[1].n.should eql("two")
+      ordered[2].n.should eql("three")
+    end
+
+    it "should sort the list of values by given order" do
+      list = ["two", "one", "three"]
+      map = ["one", "two", "three"]
+      list.sort_by_map(map).should eql(["one", "two", "three"])
+    end
+  end
 end

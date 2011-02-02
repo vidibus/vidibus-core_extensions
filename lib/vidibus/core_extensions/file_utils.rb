@@ -1,3 +1,5 @@
+require "fileutils"
+
 module FileUtils
 
   # Removes the current directory recursively including

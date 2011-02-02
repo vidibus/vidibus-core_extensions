@@ -8,6 +8,7 @@ begin
   require "jeweler"
   Jeweler::Tasks.new do |gem|
     gem.name = "vidibus-core_extensions"
+    gem.rubyforge_project = "vidibus-core_extensions"
     gem.summary = %Q{Extends the ruby core.}
     gem.description = %Q{Provides some extensions to the ruby core.}
     gem.email = "andre@vidibus.com"

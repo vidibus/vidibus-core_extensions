@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vidibus-core_extensions}
-  s.version = "0.3.15"
+  s.version = "0.3.16"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Andre Pankratz"]
-  s.date = %q{2011-01-15}
+  s.date = %q{2011-02-02}
   s.description = %q{Provides some extensions to the ruby core.}
   s.email = %q{andre@vidibus.com}
   s.extra_rdoc_files = [
@@ -43,6 +43,7 @@ Gem::Specification.new do |s|
   ]
   s.homepage = %q{http://github.com/vidibus/vidibus-core_extensions}
   s.require_paths = ["lib"]
+  s.rubyforge_project = %q{vidibus-core_extensions}
   s.rubygems_version = %q{1.3.7}
   s.summary = %q{Extends the ruby core.}
   s.test_files = [

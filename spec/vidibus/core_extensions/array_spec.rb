@@ -188,4 +188,12 @@ describe "Array" do
       list.sort_by_map(map).should eql(["one", "two", "three"])
     end
   end
+
+  describe "#delete_rec" do
+    it "should remove a given item from self" do
+      list = ["one", "two", ["one"]]
+      list.delete_rec("one").should eql("one")
+      list.should eql(["two", []])
+    end
+  end
 end

@@ -131,6 +131,33 @@ class Array
     ordered.compact
   end
 
+  # Deletes items from self and nested arrays that are equal to obj.
+  # If any items are found, returns obj. If the item is not found, returns nil.
+  # If the optional code block is given, returns the result of block if the
+  # item is not found.
+  #
+  # Examples:
+  #
+  #   list = ["one", "two", ["one"]]
+  #   list.delete_rec("one") #=> "one"
+  #   list #=> ["two", []]
+  #
+  def delete_rec(obj, &block)
+    out = nil
+    _self = self
+    _self.each do |item|
+      _out = nil
+      if item.class == Array
+        _out = item.delete_rec(obj, &block)
+      else
+        _out = _self.delete(obj, &block)
+      end
+      out ||= _out
+    end
+    self.replace(_self)
+    out
+  end
+
   private
 
   # Returns predecessor of given needle from haystack.

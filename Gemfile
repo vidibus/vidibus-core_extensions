@@ -1,7 +1,4 @@
 source :rubygems
 
-group :development do
-  gem "rspec"
-  gem "rr"
-  gem "relevance-rcov"
-end
+# Specify your gem's dependencies in vidibus-encoder.gemspec
+gemspec

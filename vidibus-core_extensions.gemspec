@@ -5,7 +5,7 @@ $:.unshift lib unless $:.include?(lib)
 require 'vidibus/core_extensions/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'vidibus-encoder'
+  s.name        = 'vidibus-core_extensions'
   s.version     = Vidibus::CoreExtensions::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = 'André Pankratz'

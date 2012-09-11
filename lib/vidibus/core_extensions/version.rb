@@ -1,5 +1,5 @@
 module Vidibus
   module CoreExtensions
-    VERSION = '0.3.17'
+    VERSION = '0.4.0'
   end
 end

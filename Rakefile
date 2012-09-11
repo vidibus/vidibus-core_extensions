@@ -4,7 +4,7 @@ require 'bundler'
 require 'rdoc/task'
 require 'rspec'
 require 'rspec/core/rake_task'
-require 'vidibus/secure/version'
+require 'vidibus/core_extensions/version'
 
 Bundler::GemHelper.install_tasks
 

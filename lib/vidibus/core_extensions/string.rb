@@ -135,4 +135,17 @@ class String
     return self unless params and params.any?
     self + (self.match(/\?/) ? "&" : "?") + params.to_query
   end
+
+  # Converts string into a naturally sortable string.
+  def sortable
+    matches = self.scan(/(\D+)?(\d+(?:[\.]?\d+)?)(\D+)?/)
+    return self.downcase.gsub(/\s/, '') if matches.none?
+    ''.tap do |converted|
+      matches.each do |s1, i, s2|
+        converted << s1.downcase.gsub(/\s/, '') if s1
+        converted << '%030f' % i.to_f
+        converted << s2.downcase.gsub(/\s/, '') if s2
+      end
+    end
+  end
 end

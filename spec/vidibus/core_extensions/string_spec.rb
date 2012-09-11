@@ -141,4 +141,65 @@ describe "String" do
       "http://vidibus.org?opensource=true".with_params(:awesome => "yes").should eql("http://vidibus.org?opensource=true&awesome=yes")
     end
   end
+
+  describe '#sortable' do
+    it 'should not convert a string that contains just downcase letters' do
+      'hello'.sortable.should eq('hello')
+    end
+
+    it 'should convert a string that contains upcase letters' do
+      'Hello'.sortable.should eq('hello')
+    end
+
+    it 'should strip whitespace' do
+      'hel lo'.sortable.should eq('hello')
+    end
+
+    it 'should strip tabs' do
+      'hel lo'.sortable.should eq('hello')
+    end
+
+    it 'should convert a string containing just a number' do
+      '123'.sortable.should eq('00000000000000000000123.000000')
+    end
+
+    it 'should convert a string containing one float' do
+      '1.23'.sortable.should eq('00000000000000000000001.230000')
+    end
+
+    it 'should convert a string containing one float with comma' do
+      pending 'Use Rails\' number formatting for that?'
+      '1,23'.sortable.should eq('00000000000000000000001.230000')
+    end
+
+    it 'should convert a string containing one number with comma as thousands separator' do
+      pending 'Use Rails\' number formatting for that?'
+      '1,234'.sortable.should eq('00000000000000000001234.000000')
+    end
+
+    it 'should convert a string containing one number with dot as thousands separator' do
+      pending 'Use Rails\' number formatting for that?'
+      '1.234'.sortable.should eq('00000000000000000001234.000000')
+    end
+
+    it 'should convert a string containing one number followed by a dot' do
+      '1.'.sortable.should eq('00000000000000000000001.000000.')
+    end
+
+    it 'should convert a string containing one number at the beginning' do
+      '123a'.sortable.should eq('00000000000000000000123.000000a')
+    end
+
+    it 'should convert a string containing one number in the middle' do
+      'A 123 b'.sortable.should eq('a00000000000000000000123.000000b')
+    end
+
+    it 'should convert a string containing one number at the end' do
+      'A 123 b'.sortable.should eq('a00000000000000000000123.000000b')
+    end
+
+    it 'should convert a string containing several numbers in the middle' do
+      'A 123 b 4'.sortable.should eq('a00000000000000000000123.000000b00000000000000000000004.000000')
+    end
+  end
 end

@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/vidibus/vidibus-core_extensions'
   s.summary     = 'Provides some extensions of the Ruby core'
   s.description = s.summary
+  s.license     = 'MIT'
 
   s.required_rubygems_version = '>= 1.3.6'
   s.rubyforge_project = s.name

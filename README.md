@@ -1,4 +1,4 @@
-# Vidibus::CoreExtensions [![](http://travis-ci.org/vidibus/vidibus-core_extensions.png)](http://travis-ci.org/vidibus/vidibus-core_extensions)
+# Vidibus::CoreExtensions [![Build Status](https://travis-ci.org/vidibus/vidibus-core_extensions.png)](https://travis-ci.org/vidibus/vidibus-core_extensions)
 
 This gem is part of the open source SOA framework Vidibus: http://vidibus.org
 

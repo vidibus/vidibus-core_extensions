@@ -1,5 +1,3 @@
-require "uri"
-
 class Hash
 
   # Returns new hash with given arguments.

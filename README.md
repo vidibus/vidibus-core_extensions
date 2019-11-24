@@ -1,13 +1,11 @@
 # Vidibus::CoreExtensions [![Build Status](https://travis-ci.org/vidibus/vidibus-core_extensions.png)](https://travis-ci.org/vidibus/vidibus-core_extensions)
 
-This gem is part of the open source SOA framework Vidibus: http://vidibus.org
-
 It provides some extensions to the ruby core.
 
 
 ## Installation
 
-Add `gem "vidibus-secure"` to your Gemfile. Then call `bundle install` on your console.
+Add `gem "vidibus-core_extensions"` to your Gemfile. Then call `bundle install` on your console.
 
 
 # Usage
@@ -88,4 +86,4 @@ Returns a string that may be used as permalink. Example:
 
 ## Copyright
 
-Copyright (c) 2010-2012 Andre Pankratz. See LICENSE for details.
+Copyright (c) 2010-2019 Andre Pankratz. See LICENSE for details.
